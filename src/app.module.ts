@@ -9,11 +9,11 @@ import { Activity } from './activities/entities/activity.entity';
 @Module({
   imports: [ TypeOrmModule.forRoot({
     type: 'mysql',
-    host: 'localhost',
-    port: 3306,
-    username: 'root',
-    password: '14a2e317',
-    database: 'activity',
+    host: process.env.DB_HOST,
+    port: +process.env.DB_PORT,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
     entities: [Activity],
     synchronize: true,
   }),
